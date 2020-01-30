@@ -14,13 +14,6 @@
                 <title>Buscar Usuario</title>
     </head>
     <body>
-<<<<<<< HEAD
-        <h1>Buscar</h1>
-        <form action="Leer" method="POST">
-            ID_USUARIO <input type="text" name="ID_USUARIO" value="" /><br/>
-            <input type="submit" value="Burcar" name="Buscar" />
-        </form>
-=======
         <center><h1>Buscar</h1></center>
         <br>
         <center><form action="Leer" method="POST">
