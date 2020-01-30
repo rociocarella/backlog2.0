@@ -1,8 +1,3 @@
-<%-- 
-    Document   : encontrado
-    Created on : 05-05-2019, 18:34:08
-    Author     : VAIO
---%>
 
 <%@page import="modelo.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
