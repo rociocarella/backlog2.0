@@ -6,13 +6,14 @@
 package controlador;
 
 import dao.ClienteDao;
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Cliente;
+import modelo.Usuario;
 
 /**
  *
@@ -29,12 +30,12 @@ public class SAgregar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs ClienteDao
      */
-    ClienteDao clienteDao;
+    UsuarioDao usuarioDao;
 
     public void init() {
     String pass =getServletContext().getInitParameter("jdbcPassword");
 
-        clienteDao = new ClienteDao();
+        usuarioDao = new UsuarioDao();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -42,15 +43,13 @@ public class SAgregar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String ID_CLIENTE = request.getParameter("ID_CLIENTE");
+            String ID_USARIO = request.getParameter("ID_USARIO");
             String NOMBRE = request.getParameter("NOMBRE");
-            String RUT = request.getParameter("RUT");
-            String APELLIDO = request.getParameter("APELLIDO");
-            String DIRECCION = request.getParameter("DIRECCION");
-            String COMUNA = request.getParameter("COMUNA");
-            String EMAIL = request.getParameter("EMAIL");
-            String FECHA_NAC = request.getParameter("FECHA_NAC");
-            String PASS = request.getParameter("PASS");
+            String PASSWORD = request.getParameter("PASSWORD");
+            String TOKEN_CSRT = request.getParameter("TOKEN_CSRT");
+            String ULTIMA_CONEXION = request.getParameter("ULTIMA_CONEXION");
+            String CORREO = request.getParameter("CORREO");
+            String ID_TIPO_USUARIO = request.getParameter("ID_TIPO_USUARIO");
             String error = "";
             if (NOMBRE.equals("") || NOMBRE == null) {
                 error = "El campos es obligatorio";
@@ -58,10 +57,12 @@ public class SAgregar extends HttpServlet {
                 response.sendRedirect("error.jsp");
             } else {
                 int Id = 0;
+                int tipo = 0;
                 try {
-                    Id = Integer.parseInt(ID_CLIENTE);
-                    Cliente c = new Cliente(Id, NOMBRE, RUT, APELLIDO, DIRECCION, COMUNA, EMAIL, FECHA_NAC, PASS);
-                    clienteDao.create(c);
+                    Id = Integer.parseInt(ID_USARIO);
+                    tipo = Integer.parseInt(ID_TIPO_USUARIO);
+                    Usuario c = new Usuario(Id, NOMBRE, PASSWORD, TOKEN_CSRT, ULTIMA_CONEXION, CORREO, tipo);
+                    usuarioDao.create(c);
                     response.sendRedirect("principal.jsp");
                 } catch (NumberFormatException e) {
                     error = "este campo es de tipo numerio" + e.getMessage();

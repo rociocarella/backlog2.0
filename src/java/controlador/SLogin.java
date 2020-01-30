@@ -6,6 +6,7 @@
 package controlador;
 
 import dao.ClienteDao;
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -29,11 +30,12 @@ public class SLogin extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    ClienteDao clienteDao;
+    
+    UsuarioDao usuarioDao;
 
     public void init() {
 
-        clienteDao = new ClienteDao();
+        usuarioDao = new UsuarioDao();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,9 +46,9 @@ public class SLogin extends HttpServlet {
             String usuario = request.getParameter("NOMBRE");
             String pass = request.getParameter("PASS");
 
-            boolean ok = clienteDao.autenticacion(usuario, pass);
+            boolean ok = usuarioDao.autenticacion(usuario, pass);
             if (ok) {
-                RequestDispatcher dispar = request.getRequestDispatcher("Bienvenido.jsp");
+                RequestDispatcher dispar = request.getRequestDispatcher("menu.jsp");
                 dispar.forward(request, response);
             } else {
                 RequestDispatcher dispar = request.getRequestDispatcher("AgregarClie.jsp");

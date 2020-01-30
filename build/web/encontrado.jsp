@@ -4,7 +4,7 @@
     Author     : VAIO
 --%>
 
-<%@page import="modelo.Cliente"%>
+<%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,9 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% Cliente c=(Cliente)request.getSession().getAttribute("MyClienteEncontrado"); %>
-        <h1>El cliente <%out.println(c.getNOMBRE());%> esta registrado </h1>
-        <p>RUT <%out.println(c.getRUT());%> encontrado</p> 
+        <% Usuario c=(Usuario)request.getSession().getAttribute("MyClienteEncontrado"); %>
+        <h1>El cliente <%out.println(c.getNombre());%> esta registrado </h1>
+        <p>ID asignada <%out.println(c.getId_usuario());%> XD</p> 
             
     </body>
 </html>
