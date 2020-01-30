@@ -5,7 +5,8 @@
  */
 package controlador;
 
-import dao.ClienteDao;
+
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Cliente;
+import modelo.Usuario;
 
 /**
  *
@@ -30,11 +31,12 @@ public class SLeer extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    ClienteDao clienteDao;
+    UsuarioDao usuarioDao;
 
     public void init() {
 
-        clienteDao = new ClienteDao();
+        
+        usuarioDao = new UsuarioDao();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -42,10 +44,10 @@ public class SLeer extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String ID_CLIENTE = request.getParameter("ID_CLIENTE");
+            String ID_USUARIO = request.getParameter("ID_USUARIO");
 
-            int idd = Integer.parseInt(ID_CLIENTE);
-            Cliente clie = clienteDao.read(idd);
+            int idd = Integer.parseInt(ID_USUARIO);
+            Usuario clie = usuarioDao.read(idd);
             request.getSession().setAttribute("MyClienteEncontrado", clie);
             response.sendRedirect("encontrado.jsp");
 //                   }

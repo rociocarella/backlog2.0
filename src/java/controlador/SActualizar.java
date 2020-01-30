@@ -5,14 +5,14 @@
  */
 package controlador;
 
-import dao.ClienteDao;
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Cliente;
+import modelo.Usuario;
 
 /**
  *
@@ -29,25 +29,52 @@ public class SActualizar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-        ClienteDao clienteDao;
+        
+        UsuarioDao usuarioDao;
+        
 
     public void init() {
 
-        clienteDao = new ClienteDao();
+        usuarioDao = new UsuarioDao();
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String ID_CLIENTE = request.getParameter("ID_CLIENTE");
-            
-            
-            int idd=Integer.parseInt(ID_CLIENTE);
-            Cliente clie = clienteDao.read(idd);
-            response.sendRedirect("Bienvenido.jsp");
-
-        }
+            String ID_USARIO = request.getParameter("ID_USARIO");
+            String NOMBRE = request.getParameter("NOMBRE");
+            String PASSWORD = request.getParameter("PASSWORD");
+            String TOKEN_CSRT = request.getParameter("TOKEN_CSRT");
+            String ULTIMA_CONEXION = request.getParameter("ULTIMA_CONEXION");
+            String CORREO = request.getParameter("CORREO");
+            String ID_TIPO_USUARIO = request.getParameter("ID_TIPO_USUARIO");
+            String error = "";
+            if (NOMBRE.equals("") || NOMBRE == null) {
+                error = "El campos es obligatorio";
+                request.getSession().setAttribute("mensaje", error);
+                response.sendRedirect("error.jsp");
+            } else {
+                int Id = 0;
+                int tipo = 0;
+                try {
+                    Id = Integer.parseInt(ID_USARIO);
+                    tipo = Integer.parseInt(ID_TIPO_USUARIO);
+                    Usuario c = new Usuario(Id, NOMBRE, PASSWORD, TOKEN_CSRT, ULTIMA_CONEXION, CORREO, tipo);
+                    usuarioDao.update(c);
+                    response.sendRedirect("principal.jsp");
+                } catch (NumberFormatException e) {
+                    error = "este campo es de tipo numerio" + e.getMessage();
+                    request.getSession().setAttribute("mensaje", error);
+                    response.sendRedirect("error.jsp");
+                } catch (Exception ex) {
+                    error = "error:" + ex.getMessage();
+                    request.getSession().setAttribute("mensaje", error);
+                    response.sendRedirect("error.jsp");
+                }
+                    }
+        
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

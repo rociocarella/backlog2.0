@@ -14,7 +14,7 @@
     <body>
         <h1>Buscar</h1>
         <form action="Leer" method="POST">
-            ID_CLIENTE <input type="text" name="ID_CLIENTE" value="" /><br/>
+            ID_USUARIO <input type="text" name="ID_USUARIO" value="" /><br/>
             <input type="submit" value="Burcar" name="Buscar" />
         </form>
     </body>
