@@ -43,7 +43,7 @@ public class SAgregar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String ID_USARIO = request.getParameter("ID_USARIO");
+            String ID_USUARIO = request.getParameter("ID_USUARIO");
             String NOMBRE = request.getParameter("NOMBRE");
             String PASSWORD = request.getParameter("PASSWORD");
             String TOKEN_CSRT = request.getParameter("TOKEN_CSRT");
@@ -59,7 +59,7 @@ public class SAgregar extends HttpServlet {
                 int Id = 0;
                 int tipo = 0;
                 try {
-                    Id = Integer.parseInt(ID_USARIO);
+                    Id = Integer.parseInt(ID_USUARIO);
                     tipo = Integer.parseInt(ID_TIPO_USUARIO);
                     Usuario c = new Usuario(Id, NOMBRE, PASSWORD, TOKEN_CSRT, ULTIMA_CONEXION, CORREO, tipo);
                     usuarioDao.create(c);

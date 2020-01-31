@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,12 +16,12 @@
         <center><h1>Buscar</h1></center>
         <br>
         <center><form action="Leer" method="POST">
-            ID_CLIENTE <input type="text" name="ID_CLIENTE" value="" /><br/>
+            ID_Usuario <input type="text" name="ID_USARIO" value="" /><br/>
             
             <br>
-            <!--borrado x feo
+            borrado x feo
             <input type="submit" value="Buscar" name="Buscar" />
-            -->
+            
             <center>
             <input type="submit" value="Buscar" name="Buscar" class="btn btn-primary"  role="button"/>
             </center>

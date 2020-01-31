@@ -17,15 +17,14 @@
     <br>
     
         <form action="Actualizar" method="POST" style="background-color: lavender">
-            <input type="text" name="ID_CLIENTE" value="" />ID_CLIENTE<br/>
+            <input type="text" name="ID_USARIO" value="" />ID_USARIO<br/>
             <input type="text" name="NOMBRE" value="" />NOMBRE<br/>
-            <input type="text" name="RUT" value="" />RUT<br/>
-            <input type="text" name="APELLIDO" value="" />APELLIDO<br/>
-            <input type="text" name="DIRECCION" value="" />DIRECCION<br/>
-            <input type="text" name="COMUNA" value="" />COMUNA<br/>
-            <input type="text" name="EMAIL" value="" />EMAIL<br/>
-            <input type="text" name="FECHA_NAC" value="" />FECHA_NAC<br/>
-            <input type="password" name="PASS" value="" />PASS<br/>
+            <input type="text" name="PASSWORD" value="" />PASSWORD<br/>
+            <input type="text" name="TOKEN_CSRT" value="" />TOKEN_CSRT<br/>
+            <input type="text" name="ULTIMA_CONEXION" value="" />ULTIMA_CONEXION<br/>
+            <input type="text" name="CORREO" value="" />CORREO<br/>
+            <input type="text" name="ID_TIPO_USUARIO" value="" />ID_TIPO_USUARIO<br/>
+            
             
             <!-- borrado por feo
             <input type="submit" value="Actualizar" name="Actualizar" />

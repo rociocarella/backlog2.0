@@ -20,7 +20,7 @@
 
         <form action="registrar" method="POST" style="background-color: lavender">
             
-            <input type="text" name="ID_USUARIO" value="" style="background-color: lightblue"/>     ID_USUARIO<br/>
+            <input type="text" name="ID_USUARIO" value="" style="background-color: lightblue"/>ID_USUARIO<br/>
             <input type="text" name="NOMBRE" value=""style="background-color: lightblue" />     NOMBRE<br/>
             <input type="text" name="PASSWORD" value="" style="background-color: lightblue" />      PASSWORD<br/>
             <input type="text" name="TOKEN_CSRF" value="" style="background-color: lightblue"/>     TOKEN_CSRF<br/>
@@ -36,7 +36,7 @@
             <!-- saque boton por feo 
             <input type="submit" value="Agregar" name="agregar" />
             -->
-            <input type="submit" value="Agregar" name="agregar" class="btn btn-primary"  role="button"/>
+            <input type="submit" value="Agregar" name="agregar" />  <!-- class="btn btn-primary"  role="button"/> -->
         <br>
         
     
