@@ -25,7 +25,7 @@
                 <br/><br/>                
                 <label id="subtitulo2">CLAVE </label>
                 <br/><br/>                
-                <input type="text" name="PASS" value="" />
+                <input type="PASSWORD" name="PASS" value="" />
                 <br/><br/>
                 <input type="submit"  value="Iniciar Sesion" id="boton1"/>
                 <br/><br/>
