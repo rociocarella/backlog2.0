@@ -6,8 +6,12 @@
             <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/web/Actualizar.jsp</file>
             <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/web/registrar.jsp</file>
             <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SAgregar.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/Prueba.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SEliminar.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SLeer.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SLogin.java</file>
             <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SActualizar.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/dao/UsuarioDao.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/controlador/SLeerTodos.java</file>
         </group>
     </open-files>
 </project-private>

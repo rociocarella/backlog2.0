@@ -5,7 +5,8 @@
  */
 package controlador;
 
-import dao.ClienteDao;
+
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,11 +30,13 @@ public class SEliminar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    ClienteDao clienteDao;
+    
+    UsuarioDao usuarioDao;
 
     public void init() {
 
-        clienteDao = new ClienteDao();
+     
+        usuarioDao = new UsuarioDao();
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -41,10 +44,10 @@ public class SEliminar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String ID_CLIENT = request.getParameter("ID_CLIENTE");
+            String ID_USUARIO = request.getParameter("ID_USUARIO");
             String mensaje = "El registro del cliente se elimino";
-            int id_cliente = Integer.parseInt(ID_CLIENT);
-            clienteDao.delete(id_cliente);
+            int id_usuario = Integer.parseInt(ID_USUARIO);
+            usuarioDao.delete(id_usuario);
             request.getSession().setAttribute("mensaje", mensaje);
             response.sendRedirect("exito.jsp");
         }

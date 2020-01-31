@@ -5,7 +5,8 @@
  */
 package controlador;
 
-import dao.ClienteDao;
+
+import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Cliente;
+import modelo.Usuario;
 
 /**
  *
@@ -30,11 +32,11 @@ public class SLeerTodos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    ClienteDao clienteDao;
+    UsuarioDao usuarioDao;
 
     public void init() {
         Cliente clie;
-        clienteDao = new ClienteDao();
+        usuarioDao = new UsuarioDao();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +45,7 @@ public class SLeerTodos extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
-            ArrayList<Cliente> clie = (ArrayList<Cliente>) clienteDao.readAll();
+            ArrayList<Usuario> clie = (ArrayList<Usuario>) usuarioDao.readAll();
             String error = "";
             if (clie == null) {
                 error = "No existen clientes registrados aun";
