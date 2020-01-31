@@ -20,15 +20,6 @@
 
         <form action="registrar" method="POST" style="background-color: lavender">
             
-<<<<<<< HEAD
-            <input type="text" name="ID_USARIO" value="" />ID_CLIENTE<br/>
-            <input type="text" name="NOMBRE" value="" />NOMBRE<br/>
-            <input type="text" name="PASSWORD" value="" />RUT<br/>
-            <input type="text" name="TOKEN_CSRT" value="" />APELLIDO<br/>
-            <input type="text" name="ULTIMA_CONEXION" value="" />DIRECCION<br/>
-            <input type="text" name="CORREO" value="" />COMUNA<br/>
-            <input type="text" name="ID_TIPO_USUARIO" value="" />EMAIL<br/>
-=======
             <input type="text" name="ID_USUARIO" value="" style="background-color: lightblue"/>     ID_USUARIO<br/>
             <input type="text" name="NOMBRE" value=""style="background-color: lightblue" />     NOMBRE<br/>
             <input type="text" name="PASSWORD" value="" style="background-color: lightblue" />      PASSWORD<br/>
@@ -43,7 +34,6 @@
             -->
             
             <!-- saque boton por feo 
->>>>>>> rocio
             <input type="submit" value="Agregar" name="agregar" />
             -->
             <input type="submit" value="Agregar" name="agregar" class="btn btn-primary"  role="button"/>

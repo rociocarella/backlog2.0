@@ -1,5 +1,5 @@
 
-<%@page import="modelo.Usuario"%>
+<%@page import="modelo.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,9 +8,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% Usuario c=(Usuario)request.getSession().getAttribute("MyClienteEncontrado"); %>
-        <h1>El cliente <%out.println(c.getNombre());%> esta registrado </h1>
-        <p>ID asignada <%out.println(c.getId_usuario());%> XD</p> 
+        <% Cliente c=(Cliente)request.getSession().getAttribute("MyClienteEncontrado"); %>
+        <h1>El cliente <%out.println(c.getNOMBRE());%> esta registrado </h1>
+        <p>RUT <%out.println(c.getRUT());%> encontrado</p> 
             
     </body>
 </html>
