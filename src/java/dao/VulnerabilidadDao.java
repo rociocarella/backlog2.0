@@ -53,7 +53,7 @@ public class VulnerabilidadDao {
             ps.setString(12, vul.getPath_poc());
             ps.setString(13, vul.getNum_incidente());
             
-            ps.setInt(14, cwe.getId_cwe());
+            ps.setObject(14, vul.getCwe());
             ps.setObject(15, owasp.getId_owasp_2017());
             ps.setObject(16, criticidad.getId_criticidad());
             ps.setObject(17, ambiente.getId_ambiente());

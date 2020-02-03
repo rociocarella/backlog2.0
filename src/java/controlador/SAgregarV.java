@@ -35,6 +35,8 @@ public class SAgregarV extends HttpServlet {
     
     VulnerabilidadDao vulnerabilidadDao;
     
+    String cwe;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
@@ -54,7 +56,7 @@ public class SAgregarV extends HttpServlet {
             String pasos = request.getParameter("pasos");
             String path_poc = request.getParameter("path_poc");
             String num_incidente = request.getParameter("num_incidente");
-            int cwe = Integer.parseInt("cwe");
+            String cwe = request.getParameter("cwe");
             String owasp = request.getParameter("owasp");
             String criticidad = request.getParameter("criticidad");
             String ambiente = request.getParameter("ambiente");
@@ -93,7 +95,7 @@ public class SAgregarV extends HttpServlet {
                     
                     
                
-                    cwe2.getId_cwe();
+                    cwe = String.valueOf(cwe2.getId_cwe());
                     owasp2.getId_owasp_2017();
                     criticidad2.getId_criticidad();
                     ambiente1.getId_ambiente();
@@ -108,7 +110,7 @@ public class SAgregarV extends HttpServlet {
                     vulnerabilidadDao.create(vul);
                     response.sendRedirect("principal.jsp");
                 } catch (NumberFormatException e) {
-                    error = "este campo es de tipo numerio" + e.getMessage();
+                    error = "este campo es de tipo numerico" + e.getMessage();
                     request.getSession().setAttribute("mensaje", error);
                     response.sendRedirect("error.jsp");
                 } catch (Exception ex) {

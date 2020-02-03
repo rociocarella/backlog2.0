@@ -52,7 +52,8 @@
         <center><a class="btn btn-primary" href="principal.jsp" role="button">Usuarios</a>
         <br>
         <br>
-        <button class="btn btn-primary" href="formvul" role="button">Vulnerabilidades</button></center>
+        <a class="btn btn-primary" href="FormularioVulnerabilidades.jsp" role="button">Vulerabilidades</a>
+        <br> </center>
 
 
 
