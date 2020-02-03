@@ -29,6 +29,10 @@ public class Usuario {
         this.id_tipo_usuario = id_tipo_usuario;
     }
 
+    public Usuario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }

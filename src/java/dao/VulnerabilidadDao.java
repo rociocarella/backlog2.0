@@ -7,6 +7,7 @@ package dao;
 
 import modelo.Vulnerabilidad;
 import conexion.Conexion;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +36,8 @@ public class VulnerabilidadDao {
     public boolean create(Vulnerabilidad vul) {
         PreparedStatement ps;
         try {
+             
+            
             ps = con.getCon().prepareStatement(sql_insert);
             ps.setInt(1, vul.getId_vulnerabilidad());
             ps.setString(2, vul.getNombre_vulnerabilidad());
@@ -43,24 +46,21 @@ public class VulnerabilidadDao {
             ps.setString(5, vul.getImpacto_vulnerabilidad());
             ps.setString(6, vul.getRecomendaciones_vulnerabilidad());
             ps.setInt(7, vul.getId_estado_mitigacion());
-            ps.setDate(8,vul.getFecha_mitigacion());
+            ps.setDate(8, (java.sql.Date) vul.getFecha_mitigacion());
             ps.setString(9,vul.getCvss());
-            ps.setDate(10, vul.getFecha_propuesta());
+            ps.setDate(10, (java.sql.Date) vul.getFecha_propuesta());
             ps.setString(11, vul.getPasos());
             ps.setString(12, vul.getPath_poc());
             ps.setString(13, vul.getNum_incidente());
             
-            ps.setObject(14, vul.getCwe());
-            ps.setObject(15, vul.getOwasp());
-            ps.setObject(16, vul.getCriticidad());
-            ps.setObject(17, vul.getAmbiente());
-            ps.setObject(18, vul.getTratamiento_riesgo());
-            ps.setObject(19, vul.getUsuario());
-            ps.setObject(20, vul.getEmpresa());
-            ps.setObject(21, vul.getAplicacion());
-            
-            
-            
+            ps.setInt(14, cwe.getId_cwe());
+            ps.setObject(15, owasp.getId_owasp_2017());
+            ps.setObject(16, criticidad.getId_criticidad());
+            ps.setObject(17, ambiente.getId_ambiente());
+            ps.setObject(18, tratamiento_Riesgo.getId_tratamiento());
+            ps.setObject(19, usuario.getId_usuario());
+            ps.setObject(20, empresa.getId_empresa());
+            ps.setObject(21, ambiente.getId_ambiente());
             
             if (ps.executeUpdate() > 0) {
                 return true;
@@ -71,6 +71,10 @@ public class VulnerabilidadDao {
             con.cerrarConexion();
         }
         return false;
+    }
+
+    public void create(Vulnerabilidad v) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

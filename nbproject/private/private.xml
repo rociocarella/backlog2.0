@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/modelo/Intermedio.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/modelo/Vulnerabilidad.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/modelo/Documento.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/dao/VulnerabilidadDao.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/modelo/Criticidad.java</file>
-            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/modelo/Cwe.java</file>
+            <file>file:/C:/Users/japa/Desktop/repo/backlog2.0/src/java/dao/DocumentoDao.java</file>
         </group>
     </open-files>
 </project-private>

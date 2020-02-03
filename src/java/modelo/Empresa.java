@@ -22,6 +22,10 @@ public class Empresa {
         this.nombre_empresa = nombre_empresa;
     }
 
+    public Empresa() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_empresa() {
         return id_empresa;
     }

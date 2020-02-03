@@ -21,6 +21,10 @@ public class Ambiente {
         this.nombre_ambiente = nombre_ambiente;
     }
 
+    public Ambiente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_ambiente() {
         return id_ambiente;
     }

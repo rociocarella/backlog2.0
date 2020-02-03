@@ -6,8 +6,8 @@
 package modelo;
 
 
-import modelo.Ambiente;
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  *
@@ -64,7 +64,7 @@ public class Vulnerabilidad {
     private Empresa empresa;
     private Aplicacion aplicacion;
 
-    public Vulnerabilidad(int id_vulnerabilidad, String nombre_vulnerabilidad, String url_servicio, String descripcion_vulnerabilidad, String impacto_vulnerabilidad, String recomendaciones_vulnerabilidad, int id_estado_mitigacion, Date fecha_mitigacion, String cvss, Date fecha_propuesta, String pasos, String path_poc, String num_incidente, Cwe cwe, Owasp owasp, Criticidad criticidad, Ambiente ambiente, Tratamiento_Riesgo tratamiento_riesgo, Usuario usuario, Empresa empresa, Aplicacion aplicacion) {
+    public Vulnerabilidad (int id_vulnerabilidad, String nombre_vulnerabilidad, String url_servicio, String descripcion_vulnerabilidad, String impacto_vulnerabilidad, String recomendaciones_vulnerabilidad, int id_estado_mitigacion, Date fecha_mitigacion, String cvss, Date fecha_propuesta, String pasos, String path_poc, String num_incidente, Cwe cwe, Owasp owasp, Criticidad criticidad, Ambiente ambiente, Tratamiento_Riesgo tratamiento_riesgo, Usuario usuario, Empresa empresa, Aplicacion aplicacion) {
         this.id_vulnerabilidad = id_vulnerabilidad;
         this.nombre_vulnerabilidad = nombre_vulnerabilidad;
         this.url_servicio = url_servicio;

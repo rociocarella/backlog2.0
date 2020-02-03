@@ -27,6 +27,11 @@ public class Cwe {
         this.nro_cwe = nro_cwe;
     }
 
+    public Cwe() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
     public int getId_cwe() {
         return id_cwe;
     }

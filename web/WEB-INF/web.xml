@@ -28,6 +28,10 @@
         <servlet-name>SLogin</servlet-name>
         <servlet-class>controlador.SLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SAgregarV</servlet-name>
+        <servlet-class>controlador.SAgregarV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/Inicio</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>SLogin</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SAgregarV</servlet-name>
+        <url-pattern>/SAgregarV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

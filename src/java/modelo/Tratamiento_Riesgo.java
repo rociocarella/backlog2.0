@@ -21,6 +21,10 @@ public class Tratamiento_Riesgo {
         this.nombre_estado = nombre_estado;
     }
 
+    public Tratamiento_Riesgo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_tratamiento() {
         return id_tratamiento;
     }

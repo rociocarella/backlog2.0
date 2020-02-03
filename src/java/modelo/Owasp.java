@@ -25,6 +25,10 @@ public class Owasp {
         this.tipo_owasp = tipo_owasp;
     }
 
+    public Owasp() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_owasp_2017() {
         return id_owasp_2017;
     }
