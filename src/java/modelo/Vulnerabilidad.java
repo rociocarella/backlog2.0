@@ -7,7 +7,7 @@ package modelo;
 
 
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -55,69 +55,30 @@ public class Vulnerabilidad {
     private String path_poc;
     private String num_incidente;
     
-    private Cwe cwe;
-    private Owasp owasp;
-    private Criticidad criticidad;
-    private Ambiente ambiente;
-    private Tratamiento_Riesgo tratamiento_riesgo;
-    private Usuario usuario;
-    private Empresa empresa;
-    private Aplicacion aplicacion;
-
-    public Vulnerabilidad (int id_vulnerabilidad, String nombre_vulnerabilidad, String url_servicio, String descripcion_vulnerabilidad, String impacto_vulnerabilidad, String recomendaciones_vulnerabilidad, int id_estado_mitigacion, Date fecha_mitigacion, String cvss, Date fecha_propuesta, String pasos, String path_poc, String num_incidente, Cwe cwe, Owasp owasp, Criticidad criticidad, Ambiente ambiente, Tratamiento_Riesgo tratamiento_riesgo, Usuario usuario, Empresa empresa, Aplicacion aplicacion) {
-        this.id_vulnerabilidad = id_vulnerabilidad;
-        this.nombre_vulnerabilidad = nombre_vulnerabilidad;
-        this.url_servicio = url_servicio;
-        this.descripcion_vulnerabilidad = descripcion_vulnerabilidad;
-        this.impacto_vulnerabilidad = impacto_vulnerabilidad;
-        this.recomendaciones_vulnerabilidad = recomendaciones_vulnerabilidad;
-        this.id_estado_mitigacion = id_estado_mitigacion;
-        this.fecha_mitigacion = fecha_mitigacion;
-        this.cvss = cvss;
-        this.fecha_propuesta = fecha_propuesta;
-        this.pasos = pasos;
-        this.path_poc = path_poc;
-        this.num_incidente = num_incidente;
-        this.cwe = cwe;
-        this.owasp = owasp;
-        this.criticidad = criticidad;
-        this.ambiente = ambiente;
-        this.tratamiento_riesgo = tratamiento_riesgo;
-        this.usuario = usuario;
-        this.empresa = empresa;
-        this.aplicacion = aplicacion;
-    }
+    private int usuario;
+    private int categoria;
+    private int owasp;
+    private int criticidad;
+    private int tratamiento_riesgo;
+    private int cwe;
+    private int aplicacion;
+    private int ambiente;
+    private int empresa;
 
     public int getId_vulnerabilidad() {
         return id_vulnerabilidad;
     }
 
-    public void setId_vulnerabilidad(int id_vulnerabilidad) throws Exception
-    {
-        if(id_vulnerabilidad !=0)
-        {
-            this.id_vulnerabilidad = id_vulnerabilidad;
-        }
-        else
-        {
-            throw new Exception ("El id no puede estar vacío");
-        }
+    public void setId_vulnerabilidad(int id_vulnerabilidad) {
+        this.id_vulnerabilidad = id_vulnerabilidad;
     }
 
     public String getNombre_vulnerabilidad() {
         return nombre_vulnerabilidad;
     }
 
-    public void setNombre_vulnerabilidad(String nombre_vulnerabilidad) throws Exception
-    {
-        if(nombre_vulnerabilidad.trim().length()!=0)
-        {
-            this.nombre_vulnerabilidad = nombre_vulnerabilidad;
-        }
-        else
-        {
-            throw new Exception ("El nombre no puede estar vacío");
-        }
+    public void setNombre_vulnerabilidad(String nombre_vulnerabilidad) {
+        this.nombre_vulnerabilidad = nombre_vulnerabilidad;
     }
 
     public String getUrl_servicio() {
@@ -156,25 +117,14 @@ public class Vulnerabilidad {
         return id_estado_mitigacion;
     }
 
-    public void setId_estado_mitigacion(int id_estado_mitigacion) throws Exception
-    {
-        if(id_estado_mitigacion !=0)
-        {
-            this.id_estado_mitigacion = id_estado_mitigacion;
-        }
-        else
-        {
-            throw new Exception ("El id no puede estar vacío");
-        }
-
+    public void setId_estado_mitigacion(int id_estado_mitigacion) {
+        this.id_estado_mitigacion = id_estado_mitigacion;
     }
 
     public Date getFecha_mitigacion() {
         return fecha_mitigacion;
     }
 
-    /* validar fecha oe zi */
-    
     public void setFecha_mitigacion(Date fecha_mitigacion) {
         this.fecha_mitigacion = fecha_mitigacion;
     }
@@ -183,23 +133,14 @@ public class Vulnerabilidad {
         return cvss;
     }
 
-    public void setCvss(String cvss) throws Exception 
-    {
-        if(cvss.trim().length()!=0)
-        {
-            this.cvss = cvss;
-        }
-        else
-        {
-            throw new Exception("El cvss no puede estar vacío");
-        }
+    public void setCvss(String cvss) {
+        this.cvss = cvss;
     }
 
     public Date getFecha_propuesta() {
         return fecha_propuesta;
     }
 
-    /* fecha propuesta validar oe zi */
     public void setFecha_propuesta(Date fecha_propuesta) {
         this.fecha_propuesta = fecha_propuesta;
     }
@@ -208,16 +149,8 @@ public class Vulnerabilidad {
         return pasos;
     }
 
-    public void setPasos(String pasos) throws Exception
-    {
-        if(pasos.trim().length()!=0)
-        {
-            this.pasos = pasos;
-        }
-        else
-        {
-            throw new Exception("El campo no puede estar vacío");
-        }
+    public void setPasos(String pasos) {
+        this.pasos = pasos;
     }
 
     public String getPath_poc() {
@@ -236,75 +169,104 @@ public class Vulnerabilidad {
         this.num_incidente = num_incidente;
     }
 
-    public Cwe getCwe() {
-        return cwe;
-    }
-
-    public void setCwe(Cwe cwe) {
-        this.cwe = cwe;
-    }
-
-    public Owasp getOwasp() {
-        return owasp;
-    }
-
-    public void setOwasp(Owasp owasp) {
-        this.owasp = owasp;
-    }
-
-    public Criticidad getCriticidad() {
-        return criticidad;
-    }
-
-    public void setCriticidad(Criticidad criticidad) {
-        this.criticidad = criticidad;
-    }
-
-    public Ambiente getAmbiente() {
-        return ambiente;
-    }
-
-    public void setAmbiente(Ambiente ambiente) {
-        this.ambiente = ambiente;
-    }
-
-    public Tratamiento_Riesgo getTratamiento_riesgo() {
-        return tratamiento_riesgo;
-    }
-
-    public void setTratamiento_riesgo(Tratamiento_Riesgo tratamiento_riesgo) {
-        this.tratamiento_riesgo = tratamiento_riesgo;
-    }
-
-    public Usuario getUsuario() {
+    public int getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(int usuario) {
         this.usuario = usuario;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public int getCategoria() {
+        return categoria;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
     }
 
-    public Aplicacion getAplicacion() {
+    public int getOwasp() {
+        return owasp;
+    }
+
+    public void setOwasp(int owasp) {
+        this.owasp = owasp;
+    }
+
+    public int getCriticidad() {
+        return criticidad;
+    }
+
+    public void setCriticidad(int criticidad) {
+        this.criticidad = criticidad;
+    }
+
+    public int getTratamiento_riesgo() {
+        return tratamiento_riesgo;
+    }
+
+    public void setTratamiento_riesgo(int tratamiento_riesgo) {
+        this.tratamiento_riesgo = tratamiento_riesgo;
+    }
+
+    public int getCwe() {
+        return cwe;
+    }
+
+    public void setCwe(int cwe) {
+        this.cwe = cwe;
+    }
+
+    public int getAplicacion() {
         return aplicacion;
     }
 
-    public void setAplicacion(Aplicacion aplicacion) {
+    public void setAplicacion(int aplicacion) {
         this.aplicacion = aplicacion;
     }
 
-    @Override
-    public String toString() {
-        return "Vulnerabilidad{" + "id_vulnerabilidad=" + id_vulnerabilidad + ", nombre_vulnerabilidad=" + nombre_vulnerabilidad + ", url_servicio=" + url_servicio + ", descripcion_vulnerabilidad=" + descripcion_vulnerabilidad + ", impacto_vulnerabilidad=" + impacto_vulnerabilidad + ", recomendaciones_vulnerabilidad=" + recomendaciones_vulnerabilidad + ", id_estado_mitigacion=" + id_estado_mitigacion + ", fecha_mitigacion=" + fecha_mitigacion + ", cvss=" + cvss + ", fecha_propuesta=" + fecha_propuesta + ", pasos=" + pasos + ", path_poc=" + path_poc + ", num_incidente=" + num_incidente + ", cwe=" + cwe + ", owasp=" + owasp + ", criticidad=" + criticidad + ", ambiente=" + ambiente + ", tratamiento_riesgo=" + tratamiento_riesgo + ", usuario=" + usuario + ", empresa=" + empresa + ", aplicacion=" + aplicacion + '}';
+    public int getAmbiente() {
+        return ambiente;
     }
-    
+
+    public void setAmbiente(int ambiente) {
+        this.ambiente = ambiente;
+    }
+
+    public int getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(int empresa) {
+        this.empresa = empresa;
+    }
+
+    public Vulnerabilidad(int id_vulnerabilidad, String nombre_vulnerabilidad, String url_servicio, String descripcion_vulnerabilidad, String impacto_vulnerabilidad, String recomendaciones_vulnerabilidad, int id_estado_mitigacion, Date fecha_mitigacion, String cvss, Date fecha_propuesta, String pasos, String path_poc, String num_incidente, int usuario, int categoria, int owasp, int criticidad, int tratamiento_riesgo, int cwe, int aplicacion, int ambiente, int empresa) {
+        this.id_vulnerabilidad = id_vulnerabilidad;
+        this.nombre_vulnerabilidad = nombre_vulnerabilidad;
+        this.url_servicio = url_servicio;
+        this.descripcion_vulnerabilidad = descripcion_vulnerabilidad;
+        this.impacto_vulnerabilidad = impacto_vulnerabilidad;
+        this.recomendaciones_vulnerabilidad = recomendaciones_vulnerabilidad;
+        this.id_estado_mitigacion = id_estado_mitigacion;
+        this.fecha_mitigacion = fecha_mitigacion;
+        this.cvss = cvss;
+        this.fecha_propuesta = fecha_propuesta;
+        this.pasos = pasos;
+        this.path_poc = path_poc;
+        this.num_incidente = num_incidente;
+        this.usuario = usuario;
+        this.categoria = categoria;
+        this.owasp = owasp;
+        this.criticidad = criticidad;
+        this.tratamiento_riesgo = tratamiento_riesgo;
+        this.cwe = cwe;
+        this.aplicacion = aplicacion;
+        this.ambiente = ambiente;
+        this.empresa = empresa;
+    }
+
+
  
     
     

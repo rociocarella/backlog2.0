@@ -36,7 +36,7 @@
             <!-- saque boton por feo 
             <input type="submit" value="Agregar" name="agregar" />
             -->
-            <input type="submit" value="Agregar" name="agregar" />  <!-- class="btn btn-primary"  role="button"/> -->
+            <input type="submit" value="registrar" name="registrar" />  <!-- class="btn btn-primary"  role="button"/> -->
         <br>
         
     

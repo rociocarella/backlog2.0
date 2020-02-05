@@ -29,8 +29,12 @@
         <servlet-class>controlador.SLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SAgregarV</servlet-name>
-        <servlet-class>controlador.SAgregarV</servlet-class>
+        <servlet-name>SAgregarVul</servlet-name>
+        <servlet-class>controlador.SAgregarVul</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SAgregarDoc</servlet-name>
+        <servlet-class>controlador.SAgregarDoc</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
@@ -61,8 +65,12 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SAgregarV</servlet-name>
-        <url-pattern>/SAgregarV</url-pattern>
+        <servlet-name>SAgregarVul</servlet-name>
+        <url-pattern>/FormularioVulnerabilidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SAgregarDoc</servlet-name>
+        <url-pattern>/SAgregarDocumento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

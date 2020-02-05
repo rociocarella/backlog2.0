@@ -37,15 +37,15 @@
             <input type="text" name="pasos" value="" />pasos <br/>
             <input type="text" name="path_poc" value="" />path_poc <br/>
             <input type="text" name="num_incidente" value="" />num_incidente <br/>
-            <input type="text" name="cwe" value="" />cwe <br/>
-            <input type="text" name="owasp" value="" />owasp <br/>
-            <input type="text" name="criticidad" value="" />criticidad <br/>
-            <input type="text" name="ambiente" value="" />ambiente <br/>
-            <input type="text" name="tratamiento_riesgo" value="" />tratamiento_riesgo <br/>
-            <input type="text" name="usuario" value="" />usuario <br/>
-            <input type="text" name="empresa" value="" />empresa <br/>
-            <input type="text" name="aplicacion" value="" />aplicacion <br/>
-            
+            <input type="text" name="id_usuario" value="" />id_usuario <br/>
+            <input type="text" name="id_categoria" value="" />id_categoria <br/>
+            <input type="text" name="id_owasp_2017" value="" />id_owasp_2017 <br/>
+            <input type="text" name="id_criticidad" value="" />id_criticidad <br/>
+            <input type="text" name="id_tratamiento_riesgo" value="" />tratamiento_riesgo <br/>
+            <input type="text" name="id_cwe" value="" />id_cwe <br/>
+            <input type="text" name="id_aplicacion" value="" />id_aplicacion <br/>
+            <input type="text" name="id_ambiente" value="" />id_ambiente <br/>
+            <input type="text" name="id_empresa" value="" />id_empresa<br/>
             
             
             

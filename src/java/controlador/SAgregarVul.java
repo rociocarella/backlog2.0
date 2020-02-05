@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Vulnerabilidad;
-import java.util.Date;
+import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import modelo.*;
 
@@ -21,7 +22,7 @@ import modelo.*;
  *
  * @author japa
  */
-public class SAgregarV extends HttpServlet {
+public class SAgregarVul extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +34,24 @@ public class SAgregarV extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    VulnerabilidadDao vulnerabilidadDao;
+    VulnerabilidadDao vulnerabilidadDao; 
     
-    String cwe;
+    public void init() {
+    String pass =getServletContext().getInitParameter("jdbcPassword");
+
+        vulnerabilidadDao = new VulnerabilidadDao();
+    }
+     private static java.sql.Date convert(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             String id_vulnerabilidad = request.getParameter("id_vulnerabilidad");
             String nombre_vulnerabilidad = request.getParameter("nombre_vulnerabilidad");
             String url_servicio = request.getParameter("url_servicio");
@@ -56,14 +65,16 @@ public class SAgregarV extends HttpServlet {
             String pasos = request.getParameter("pasos");
             String path_poc = request.getParameter("path_poc");
             String num_incidente = request.getParameter("num_incidente");
-            String cwe = request.getParameter("cwe");
-            String owasp = request.getParameter("owasp");
-            String criticidad = request.getParameter("criticidad");
-            String ambiente = request.getParameter("ambiente");
-            String tratamiento_riesgo = request.getParameter("tratamiento_riesgo");
-            String usuario = request.getParameter("usuario");
-            String empresa = request.getParameter("empresa");
-            String aplicacion = request.getParameter("aplicacion");
+            String cwe = request.getParameter("id_cwe");
+            String owasp = request.getParameter("id_owasp_2017");
+            String criticidad = request.getParameter("id_criticidad");
+            String ambiente = request.getParameter("id_ambiente");
+            String tratamiento_riesgo = request.getParameter("id_tratamiento_riesgo");
+            String usuario = request.getParameter("id_usuario");
+            String empresa = request.getParameter("id_empresa");
+            String aplicacion = request.getParameter("id_aplicacion");
+            String id_categoria = request.getParameter("id_categoria");
+            
             String error = "";
             
             if (nombre_vulnerabilidad.equals("") || nombre_vulnerabilidad == null) {
@@ -73,40 +84,50 @@ public class SAgregarV extends HttpServlet {
             } else {
                 int Id = 0;
                 int id_estado = 0;
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                Date fecha_mitig = null;
-                Date fecha_prop = null;
+                int cwe1 = 0;
+                int owasp1 = 0;
+                int criticidad1 = 0;
+                int ambiente1 = 0 ;
+                int tratamiento_riesgo1 = 0;
+                int usuario1 = 0;
+                int empresa1 = 0;
+                int aplicacion1 = 0;
+                int categoria1 = 0;
+                int num_incid1 = 0;
+                
+                
+               
                 
                 try {
                     Id = Integer.parseInt(id_vulnerabilidad);
                     id_estado = Integer.parseInt(id_estado_mitigacion);
-                    fecha_mitig = formato.parse(fecha_mitigacion);
-                    fecha_prop = formato.parse(fecha_propuesta);
+                    cwe1 = Integer.parseInt(cwe);
+                    owasp1 = Integer.parseInt(owasp);
+                    criticidad1= Integer.parseInt(criticidad);
+                    ambiente1= Integer.parseInt(ambiente);
+                    tratamiento_riesgo1=Integer.parseInt(tratamiento_riesgo);
+                    usuario1= Integer.parseInt(usuario);
+                    empresa1= Integer.parseInt(empresa);
+                    aplicacion1= Integer.parseInt(aplicacion);
+                    categoria1= Integer.parseInt(id_categoria);
                     
-                    Cwe cwe2 = new Cwe();
-                    Owasp owasp2 = new Owasp();
-                    Criticidad criticidad2 = new Criticidad();
-                    Ambiente ambiente1 = new Ambiente();
-                    Tratamiento_Riesgo tratamiento = new Tratamiento_Riesgo();
-                    Usuario usuario1 = new Usuario();
-                    Empresa empresa1 = new Empresa();
-                    Aplicacion aplicacion1 = new Aplicacion();
-                    
-                    
-                    
+                    java.util.Date utilDate = new java.util.Date(fecha_mitigacion);
+                    java.sql.Date sqlDate = convert(utilDate);
+                    DateFormat df = new SimpleDateFormat("dd/MM/YYYY");
                
-                    cwe = String.valueOf(cwe2.getId_cwe());
-                    owasp2.getId_owasp_2017();
-                    criticidad2.getId_criticidad();
-                    ambiente1.getId_ambiente();
-                    tratamiento.getId_tratamiento();
-                    usuario1.getId_usuario();
-                    empresa1.getId_empresa();
-                    aplicacion1.getId_aplicacion();
+                    
+                    java.util.Date utilDate2 = new java.util.Date(fecha_propuesta);
+                    java.sql.Date sqlDate2 = convert(utilDate2);
+                    DateFormat df2 = new SimpleDateFormat("dd/MM/YYYY");
+                 
                     
                     
                     
-                    Vulnerabilidad vul = new Vulnerabilidad(Id, nombre_vulnerabilidad, url_servicio, descripcion_vulnerabilidad,impacto_vulnerabilidad ,recomendaciones_vulnerabilidad, id_estado, fecha_mitig, cvss, fecha_prop, pasos, path_poc, num_incidente, cwe2,owasp2,criticidad2,ambiente1,tratamiento,usuario1,empresa1,aplicacion1);
+                    
+                    
+                    
+                    
+                    Vulnerabilidad vul = new Vulnerabilidad(Id, nombre_vulnerabilidad, url_servicio, descripcion_vulnerabilidad,impacto_vulnerabilidad ,recomendaciones_vulnerabilidad, id_estado,sqlDate , cvss, sqlDate2, pasos, path_poc, num_incidente,usuario1,categoria1,owasp1,criticidad1,tratamiento_riesgo1,cwe1,aplicacion1,ambiente1,empresa1);                   
                     vulnerabilidadDao.create(vul);
                     response.sendRedirect("principal.jsp");
                 } catch (NumberFormatException e) {
@@ -120,13 +141,15 @@ public class SAgregarV extends HttpServlet {
                 }
             }
         }
+    }    
         
         
         
-        
-        
-    }
-
+  
+    
+    
+   
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import dao.ClienteDao;
+
 import dao.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +46,7 @@ public class SAgregar extends HttpServlet {
             String ID_USUARIO = request.getParameter("ID_USUARIO");
             String NOMBRE = request.getParameter("NOMBRE");
             String PASSWORD = request.getParameter("PASSWORD");
-            String TOKEN_CSRT = request.getParameter("TOKEN_CSRT");
+            String TOKEN_CSRF = request.getParameter("TOKEN_CSRF");
             String ULTIMA_CONEXION = request.getParameter("ULTIMA_CONEXION");
             String CORREO = request.getParameter("CORREO");
             String ID_TIPO_USUARIO = request.getParameter("ID_TIPO_USUARIO");
@@ -57,12 +57,12 @@ public class SAgregar extends HttpServlet {
                 response.sendRedirect("error.jsp");
             } else {
                 int Id = 0;
-                int tipo = 0;
+                int TIPO = 0;
                 try {
                     Id = Integer.parseInt(ID_USUARIO);
-                    tipo = Integer.parseInt(ID_TIPO_USUARIO);
-                    Usuario c = new Usuario(Id, NOMBRE, PASSWORD, TOKEN_CSRT, ULTIMA_CONEXION, CORREO, tipo);
-                    usuarioDao.create(c);
+                    TIPO = Integer.parseInt(ID_TIPO_USUARIO);
+                    Usuario u = new Usuario(Id, NOMBRE, PASSWORD, TOKEN_CSRF, ULTIMA_CONEXION, CORREO, TIPO);
+                    usuarioDao.create(u);
                     response.sendRedirect("principal.jsp");
                 } catch (NumberFormatException e) {
                     error = "este campo es de tipo numerio" + e.getMessage();

@@ -45,14 +45,14 @@ public class Documento {
     private String alcance;
     private String conclusion;
     
-    private Revision revision;
-    private Personas personas;
-    private Usuario usuario;
-    private Origen origen;
-    private Celula celula;
-    private Proyecto proyecto;
+    private int persona;
+    private String proyecto;
+    private int celula;
+    private int usuario;
+    private int origen;
+    private int revision;
 
-    public Documento(int id_documento, String nombre_documento, String path_documento, int version_documento, String hash_md5, String hash_sha1, String hash_sha256, String documento_relacionado, Date fecha_entrega, int nro_sprint, String nombre_sprint, boolean estado_documento, String alcance, String conclusion, Revision revision, Personas personas, Usuario usuario, Origen origen, Celula celula, Proyecto proyecto) {
+    public Documento(int id_documento, String nombre_documento, String path_documento, int version_documento, String hash_md5, String hash_sha1, String hash_sha256, String documento_relacionado, Date fecha_entrega, int nro_sprint, String nombre_sprint, boolean estado_documento, String alcance, String conclusion, int persona, String proyecto, int celula, int usuario, int origen, int revision) {
         this.id_documento = id_documento;
         this.nombre_documento = nombre_documento;
         this.path_documento = path_documento;
@@ -67,124 +67,68 @@ public class Documento {
         this.estado_documento = estado_documento;
         this.alcance = alcance;
         this.conclusion = conclusion;
-        this.revision = revision;
-        this.personas = personas;
+        this.persona = persona;
+        this.proyecto = proyecto;
+        this.celula = celula;
         this.usuario = usuario;
         this.origen = origen;
-        this.celula = celula;
-        this.proyecto = proyecto;
+        this.revision = revision;
     }
 
     public int getId_documento() {
         return id_documento;
     }
 
-    public void setId_documento(int id_documento) throws Exception
-    {
-        if(id_documento !=0)
-        {
-            this.id_documento = id_documento;
-        }
-        else
-        {
-            throw new Exception("El id no puede estar vacío");
-        }
+    public void setId_documento(int id_documento) {
+        this.id_documento = id_documento;
     }
 
     public String getNombre_documento() {
         return nombre_documento;
     }
 
-    public void setNombre_documento(String nombre_documento) throws Exception
-    {
-        if(nombre_documento.trim().length()!=0)
-        {
-            this.nombre_documento = nombre_documento;
-        }
-        else
-        {
-            throw new Exception("El nombre del documento no puede estar vacío");
-        }
+    public void setNombre_documento(String nombre_documento) {
+        this.nombre_documento = nombre_documento;
     }
 
     public String getPath_documento() {
         return path_documento;
     }
 
-    public void setPath_documento(String path_documento) throws Exception
-    {
-        if(path_documento.trim().length()!=0)
-        {
-            this.path_documento = path_documento;
-        }
-        else
-        {
-            throw new  Exception ("El path del documento no puede estar vacío");
-        }
+    public void setPath_documento(String path_documento) {
+        this.path_documento = path_documento;
     }
 
     public int getVersion_documento() {
         return version_documento;
     }
 
-    public void setVersion_documento(int version_documento) throws Exception
-    {
-        if(version_documento !=0)
-        {
-            this.version_documento = version_documento;
-        }
-        else
-        {
-            throw new Exception ("La versión del documento no puede estar vacía");
-        }
+    public void setVersion_documento(int version_documento) {
+        this.version_documento = version_documento;
     }
 
     public String getHash_md5() {
         return hash_md5;
     }
 
-    public void setHash_md5(String hash_md5) throws Exception
-    {
-        if(hash_md5.trim().length()!=0)
-        {
-            this.hash_md5 = hash_md5;
-        }
-        else
-        {
-            throw new Exception ("El campo no puede estar vacío");
-        }
+    public void setHash_md5(String hash_md5) {
+        this.hash_md5 = hash_md5;
     }
 
     public String getHash_sha1() {
         return hash_sha1;
     }
 
-    public void setHash_sha1(String hash_sha1) throws Exception
-    {
-        if(hash_sha1.trim().length()!=0)
-        {
-            this.hash_sha1 = hash_sha1;
-        }
-        else
-        {
-            throw new Exception("El campo no puede estar vacío");
-        }
+    public void setHash_sha1(String hash_sha1) {
+        this.hash_sha1 = hash_sha1;
     }
 
     public String getHash_sha256() {
         return hash_sha256;
     }
 
-    public void setHash_sha256(String hash_sha256) throws Exception
-    {
-        if(hash_sha256.trim().length()!=0)
-        {
-            this.hash_sha256 = hash_sha256;
-        }
-        else
-        {
-            throw new Exception("El campo no puede estar vacío");
-        }
+    public void setHash_sha256(String hash_sha256) {
+        this.hash_sha256 = hash_sha256;
     }
 
     public String getDocumento_relacionado() {
@@ -199,12 +143,8 @@ public class Documento {
         return fecha_entrega;
     }
 
-    public void setFecha_entrega(Date fecha_entrega) throws Exception
-    {
-
-        /* arreglar fecha */
-            this.fecha_entrega = fecha_entrega;
-
+    public void setFecha_entrega(Date fecha_entrega) {
+        this.fecha_entrega = fecha_entrega;
     }
 
     public int getNro_sprint() {
@@ -227,98 +167,76 @@ public class Documento {
         return estado_documento;
     }
 
-    public void setEstado_documento(boolean estado_documento) throws Exception
-    {
-        if(estado_documento = true)
-        {
-            this.estado_documento = estado_documento;
-        }
-        else
-        {
-            throw new Exception("El estado de documento no puede estar vacío");
-        }
+    public void setEstado_documento(boolean estado_documento) {
+        this.estado_documento = estado_documento;
     }
 
     public String getAlcance() {
         return alcance;
     }
 
-    public void setAlcance(String alcance) throws Exception
-    {
-        if(alcance.trim().length()!=0)
-        {
-            this.alcance = alcance;
-        }
-        else
-        {
-            throw new Exception("El campo no puede estar vacío");
-        }
+    public void setAlcance(String alcance) {
+        this.alcance = alcance;
     }
 
     public String getConclusion() {
         return conclusion;
     }
 
-    public void setConclusion(String conclusion) throws Exception
-    {
-        if(conclusion.trim().length()!=0)
-        {
-            this.conclusion = conclusion;
-        }
-        else
-        {
-            throw new Exception("La conclusión no puede estar vacía");
-        }
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
     }
 
-    public Revision getRevision() {
-        return revision;
+    public int getPersona() {
+        return persona;
     }
 
-    public void setRevision(Revision revision) {
-        this.revision = revision;
+    public void setPersona(int persona) {
+        this.persona = persona;
     }
 
-    public Personas getPersonas() {
-        return personas;
-    }
-
-    public void setPersonas(Personas personas) {
-        this.personas = personas;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Origen getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(Origen origen) {
-        this.origen = origen;
-    }
-
-    public Celula getCelula() {
-        return celula;
-    }
-
-    public void setCelula(Celula celula) {
-        this.celula = celula;
-    }
-
-    public Proyecto getProyecto() {
+    public String getProyecto() {
         return proyecto;
     }
 
-    public void setProyecto(Proyecto proyecto) {
+    public void setProyecto(String proyecto) {
         this.proyecto = proyecto;
     }
+
+    public int getCelula() {
+        return celula;
+    }
+
+    public void setCelula(int celula) {
+        this.celula = celula;
+    }
+
+    public int getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(int origen) {
+        this.origen = origen;
+    }
+
+    public int getRevision() {
+        return revision;
+    }
+
+    public void setRevision(int revision) {
+        this.revision = revision;
+    }
     
+    
+   
 
     
 }

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class Conexion {
         public static Conexion instancia;
     private Connection con;
-    public String db="bdbacklog"; /*Aqui debes escribir el nombre de la bd*/
+    public String db="backlog"; /*Aqui debes escribir el nombre de la bd*/
     public String usuario="root"; /*Aqui debes escribir el usuario de la bd*/
     public String clave=""; /*Aqui debes escribir el clave de la bd*/
 

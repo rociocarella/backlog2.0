@@ -23,12 +23,12 @@ import modelo.Usuario;
  */
 public class UsuarioDao {
 
-    private static final String sql_insert = "INSERT INTO USUARIO(ID_USUARIO, NOMBRE_USUARIO, PASSWORDD, TOKEN_CSRF, ULTIMA_CONEXION, CORREO_ELECTRONICO, ID_TIPO_USUARIO) VALUES (?,?,?,?,?,?,?)";
-    private static final String sql_delete = "DELETE FROM USUARIO WHERE ID_USUARIO=?";
-    private static final String sql_update = "UPDATE USUARIO SET NOMBRE_USUARIO= ?, PASSWORDD= ?, TOKEN_CSRF= ?, ULTIMA_CONEXION= ?, CORREO_ELECTRONICO= ?, ID_TIPO_USUARIO= ? WHERE ID_USUARIO= ?";
-    private static final String sql_read = "SELECT * FROM USUARIO WHERE ID_USUARIO= ?";
-    private static final String sql_readAll = "SELECT * FROM USUARIO";
-    private static final String sql_read2 = "SELECT * FROM USUARIO WHERE NOMBRE_USUARIO= ? and PASSWORDD= ? ";
+    private static final String sql_insert = "INSERT INTO usuario(id_usuario, nombre_usuario, password, token_csrf, ultima_conexion, correo_electronico, TIPO_USUARIO_id_tipo_usuario) VALUES (?,?,?,?,?,?,?)";
+    private static final String sql_delete = "DELETE FROM usuario WHERE id_usuario=?";
+    private static final String sql_update = "UPDATE usuario SET nombre_usuario=?, password=?, token_csrf=?, ultima_conexion=?, correo_electronico=?, TIPO_USUARIO_id_tipo_usuario=? WHERE id_usuario= ?";
+    private static final String sql_read = "SELECT * FROM usuario WHERE id_usuario= ?";
+    private static final String sql_readAll = "SELECT * FROM usuario";
+    private static final String sql_read2 = "SELECT * FROM usuario WHERE nombre_usuario= ? and password= ? ";
 
     private static final Conexion con = Conexion.estadoConexion();
 

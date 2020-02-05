@@ -51,7 +51,7 @@ public class SLogin extends HttpServlet {
                 RequestDispatcher dispar = request.getRequestDispatcher("menu.jsp");
                 dispar.forward(request, response);
             } else {
-                RequestDispatcher dispar = request.getRequestDispatcher("AgregarClie.jsp");
+                RequestDispatcher dispar = request.getRequestDispatcher("login.jsp");
                 dispar.forward(request, response);
             }
 

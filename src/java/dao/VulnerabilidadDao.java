@@ -7,7 +7,8 @@ package dao;
 
 import modelo.Vulnerabilidad;
 import conexion.Conexion;
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.*;
 
 
 /**
@@ -24,7 +24,7 @@ import modelo.*;
  */
 public class VulnerabilidadDao {
     
-    private static final String sql_insert = "INSERT INTO VUlNERABILIDAD(id_vulnerabilidad,nombre_vulnerabilidad, url_servicio, descripcion_vulnerabilidad,impacto_vulnerabilidad,recomendaciones_vulnerabilidad,id_estado_mitigacion,fecha_mitigacion,cvss,fecha_propuesta,pasos,path_poc,num_incidente,cwe,owasp,criticidad,ambiente,tratamiento_riesgo,usuario,empresa,aplicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String sql_insert = "INSERT INTO vulnerabilidad(id_vulnerabilidad, nombre_vulnerabilidad, url_servicio, descripcion_vulnerabilidad, impacto_vulnerabilidad, recomendaciones_vulnerabilidad, id_estado_mitigacion, fecha_mitigacion, cvss, fecha_propuesta, pasos, path_poc, num_incidente, id_usuario, id_categoria, id_owasp_2017, id_criticidad, id_tratamiento_riesgo, id_cwe, id_aplicacion, id_ambiente, id_empresa) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String sql_delete = "DELETE FROM VUlNERABILIDAD WHERE id_vulnerabilidad=?";
     private static final String sql_update = "UPDATE VUlNERABILIDAD SET nombre_vulnerabilidad=?, url_servicio=?, descripcion_vulnerabilidad=?, impacto_vulnerabilidad=?, recomendaciones_vulnerabilidad=?, id_estado_mitigacion=?, fecha_mitigacion=?, cvss,fecha_propuesta=?, pasos=?, path_poc=?, num_incidente=?, cwe=?, owasp=?, criticidad=?, ambiente=?, tratamiento_riesgo=?, usuario=?, empresa=?, aplicacion=? WHERE id_vulnerabilidad= ?";
     private static final String sql_read = "SELECT * FROM VUlNERABILIDAD WHERE id_vulnerabilidad= ?";
@@ -36,8 +36,6 @@ public class VulnerabilidadDao {
     public boolean create(Vulnerabilidad vul) {
         PreparedStatement ps;
         try {
-             
-            
             ps = con.getCon().prepareStatement(sql_insert);
             ps.setInt(1, vul.getId_vulnerabilidad());
             ps.setString(2, vul.getNombre_vulnerabilidad());
@@ -46,21 +44,21 @@ public class VulnerabilidadDao {
             ps.setString(5, vul.getImpacto_vulnerabilidad());
             ps.setString(6, vul.getRecomendaciones_vulnerabilidad());
             ps.setInt(7, vul.getId_estado_mitigacion());
-            ps.setDate(8, (java.sql.Date) vul.getFecha_mitigacion());
+            ps.setDate(8, vul.getFecha_mitigacion());
             ps.setString(9,vul.getCvss());
-            ps.setDate(10, (java.sql.Date) vul.getFecha_propuesta());
+            ps.setDate(10, vul.getFecha_propuesta());
             ps.setString(11, vul.getPasos());
             ps.setString(12, vul.getPath_poc());
             ps.setString(13, vul.getNum_incidente());
-            
-            ps.setObject(14, vul.getCwe());
-            ps.setObject(15, owasp.getId_owasp_2017());
-            ps.setObject(16, criticidad.getId_criticidad());
-            ps.setObject(17, ambiente.getId_ambiente());
-            ps.setObject(18, tratamiento_Riesgo.getId_tratamiento());
-            ps.setObject(19, usuario.getId_usuario());
-            ps.setObject(20, empresa.getId_empresa());
-            ps.setObject(21, ambiente.getId_ambiente());
+            ps.setInt(14, vul.getUsuario());
+            ps.setInt(15, vul.getCategoria());
+            ps.setInt(16, vul.getOwasp());
+            ps.setInt(17, vul.getCriticidad());
+            ps.setInt(18, vul.getTratamiento_riesgo());
+            ps.setInt(19, vul.getCwe());
+            ps.setInt(20, vul.getAplicacion());
+            ps.setInt(21, vul.getAmbiente());
+            ps.setInt(22, vul.getEmpresa());
             
             if (ps.executeUpdate() > 0) {
                 return true;
@@ -71,12 +69,5 @@ public class VulnerabilidadDao {
             con.cerrarConexion();
         }
         return false;
-    }
-
-    public void create(Vulnerabilidad v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    
+    }    
 }
